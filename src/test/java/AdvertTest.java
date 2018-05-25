@@ -23,4 +23,9 @@ public class AdvertTest {
     public void hasName() {
         assertEquals("Bob Smith", user.getName());
     }
+
+    @Test
+    public void hasEmailAddress() {
+        assertEquals("bobsmith1@hotmail.com", user.getEmail());
+    }
 }
