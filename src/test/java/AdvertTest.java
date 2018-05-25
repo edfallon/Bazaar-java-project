@@ -79,5 +79,14 @@ public class AdvertTest {
         assertEquals(user, advert.getUser());
     }
 
+    @Test
+    public void hasPhotoURL() {
+        assertEquals("testphoto.imgur.com", advert.getPhotourl());
+    }
 
+    @Test
+    public void canChangePhotoURL() {
+        advert.setPhotourl("differentphoto.imgur.com");
+        assertEquals("differentphoto.imgur.com", advert.getPhotourl());
+    }
 }
