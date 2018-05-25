@@ -2,6 +2,9 @@ import models.Advert;
 import models.Category;
 import models.User;
 import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class AdvertTest {
 
@@ -16,4 +19,8 @@ public class AdvertTest {
         advert = new Advert("Nokia 3310", "Classic Nokia indestructable mobile phone for sale", Category.TECHNOLOGY, 50.00, "Glasgow", user, "testphoto.imgur.com");
     }
 
+    @Test
+    public void hasName() {
+        assertEquals("Bob Smith", user.getName());
+    }
 }
