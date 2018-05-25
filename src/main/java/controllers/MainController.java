@@ -17,6 +17,7 @@ public class MainController {
         Seeds.seedData();
 
         staticFileLocation("/public");
+        LoginController loginController = new LoginController();
 
         get("/", (req, res) -> {
             return "Hello, World!";
