@@ -23,4 +23,10 @@ public class AdvertTest {
     public void hasTitle() {
         assertEquals("Nokia 3310", advert.getTitle());
     }
+
+    @Test
+    public void canChangeTitle(){
+        advert.setTitle("Super Awesome Nokia 3310");
+        assertEquals("Super Awesome Nokia 3310", advert.getTitle());
+    }
 }
