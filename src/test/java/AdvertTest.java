@@ -75,5 +75,9 @@ public class AdvertTest {
     }
 
     @Test
+    public void hasUser() {
+        assertEquals(user, advert.getUser());
+    }
+
 
 }
