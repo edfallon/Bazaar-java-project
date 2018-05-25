@@ -1,7 +1,10 @@
 package models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name="users")
 public class User {
 
     private int id;
@@ -20,6 +23,9 @@ public class User {
     public User() {
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -28,6 +34,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -36,6 +43,7 @@ public class User {
         this.name = name;
     }
 
+    @Column(name="email")
     public String getEmail() {
         return email;
     }
@@ -44,6 +52,7 @@ public class User {
         this.email = email;
     }
 
+    @OneToMany(mappedBy = "user")
     public ArrayList<Advert> getAdverts() {
         return adverts;
     }
@@ -52,6 +61,7 @@ public class User {
         this.adverts = adverts;
     }
 
+    @OneToMany(mappedBy = "user")
     public ArrayList<Comment> getComments() {
         return comments;
     }
