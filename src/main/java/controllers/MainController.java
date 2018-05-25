@@ -1,5 +1,6 @@
 package controllers;
 
+import db.Seeds;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -12,6 +13,8 @@ import static spark.SparkBase.staticFileLocation;
 public class MainController {
 
     public static void main(String[] args) {
+
+        Seeds.seedData();
 
         staticFileLocation("/public");
 
