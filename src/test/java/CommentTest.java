@@ -43,4 +43,9 @@ public class CommentTest {
         comment.setText("the text has changed");
         assertEquals("the text has changed", comment.getText());
     }
+
+    @Test
+    public void hasUser() {
+        assertEquals(user, comment.getUser());
+    }
 }
