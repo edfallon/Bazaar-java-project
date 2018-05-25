@@ -19,13 +19,5 @@ public class AdvertTest {
         advert = new Advert("Nokia 3310", "Classic Nokia indestructable mobile phone for sale", Category.TECHNOLOGY, 50.00, "Glasgow", user, "testphoto.imgur.com");
     }
 
-    @Test
-    public void hasName() {
-        assertEquals("Bob Smith", user.getName());
-    }
 
-    @Test
-    public void hasEmailAddress() {
-        assertEquals("bobsmith1@hotmail.com", user.getEmail());
-    }
 }
