@@ -26,5 +26,9 @@ public class CommentTest {
         assertEquals("Question about product", comment.getTitle());
     }
 
-
+    @Test
+    public void canSetTitle() {
+        comment.setTitle("different question");
+        assertEquals("different question", comment.getTitle());
+    }
 }
