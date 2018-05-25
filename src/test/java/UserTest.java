@@ -30,4 +30,9 @@ public class UserTest {
     public void hasEmptyListOfAdverts() {
         assertEquals(0, user.getAdverts().size());
     }
+
+    @Test
+    public void hasEmptyListOfComments() {
+        assertEquals(0, user.getComments().size());
+    }
 }
