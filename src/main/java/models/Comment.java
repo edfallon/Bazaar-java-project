@@ -52,7 +52,7 @@ public class Comment {
     }
 
    @ManyToOne
-    @JoinColumn("user_id", nullable = false )
+    @JoinColumn(name = "user_id", nullable = false )
     public User getUser() {
         return user;
     }
@@ -62,7 +62,7 @@ public class Comment {
     }
 
     @ManyToOne
-    @JoinColumn("advert_id", nullable = false)
+    @JoinColumn(name = "advert_id", nullable = false)
     public Advert getAdvert() {
         return advert;
     }
