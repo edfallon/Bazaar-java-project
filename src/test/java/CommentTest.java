@@ -36,4 +36,11 @@ public class CommentTest {
     public void hasCommentText() {
         assertEquals("Does product have any changeable covers?", comment.getText());
     }
+
+
+    @Test
+    public void canChangeCommentText() {
+        comment.setText("the text has changed");
+        assertEquals("the text has changed", comment.getText());
+    }
 }
