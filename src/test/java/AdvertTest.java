@@ -34,4 +34,15 @@ public class AdvertTest {
     public void hasDescription() {
         assertEquals("Classic Nokia indestructable mobile phone for sale", advert.getDescription());
     }
+
+    @Test
+    public void canChangeDescription(){
+        advert.setDescription("different description of ad");
+        assertEquals("different description of ad", advert.getDescription());
+    }
+
+    @Test
+    public void hasCategory() {
+        assertEquals(Category.TECHNOLOGY, advert.getCategory());
+    }
 }
