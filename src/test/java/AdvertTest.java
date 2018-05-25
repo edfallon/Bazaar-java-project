@@ -15,4 +15,5 @@ public class AdvertTest {
         user = new User("Bob Smith", "bobsmith1@hotmail.com");
         advert = new Advert("Nokia 3310", "Classic Nokia indestructable mobile phone for sale", Category.TECHNOLOGY, 50.00, "Glasgow", user, "testphoto.imgur.com");
     }
+
 }
