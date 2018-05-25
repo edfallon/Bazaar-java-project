@@ -48,4 +48,9 @@ public class CommentTest {
     public void hasUser() {
         assertEquals(user, comment.getUser());
     }
+
+    @Test
+    public void hasAdvert() {
+        assertEquals(advert, comment.getAdvert());
+    }
 }
