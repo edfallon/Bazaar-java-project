@@ -62,4 +62,18 @@ public class AdvertTest {
         advert.setPrice(55.00);
         assertEquals(55.00, advert.getPrice(), 0.01);
     }
+
+    @Test
+    public void hasLocation(){
+        assertEquals("Glasgow", advert.getLocation());
+    }
+
+    @Test
+    public void canChangeLocation() {
+        advert.setLocation("Edinburgh");
+        assertEquals("Edinburgh", advert.getLocation());
+    }
+
+    @Test
+
 }
