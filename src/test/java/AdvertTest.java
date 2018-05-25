@@ -56,4 +56,10 @@ public class AdvertTest {
     public void hasPrice() {
         assertEquals(50.00, advert.getPrice(),0.01);
     }
+
+    @Test
+    public void canChangePrice() {
+        advert.setPrice(55.00);
+        assertEquals(55.00, advert.getPrice(), 0.01);
+    }
 }
