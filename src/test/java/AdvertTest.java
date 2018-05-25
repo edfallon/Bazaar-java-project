@@ -19,5 +19,8 @@ public class AdvertTest {
         advert = new Advert("Nokia 3310", "Classic Nokia indestructable mobile phone for sale", Category.TECHNOLOGY, 50.00, "Glasgow", user, "testphoto.imgur.com");
     }
 
-
+    @Test
+    public void hasTitle() {
+        assertEquals("Nokia 3310", advert.getTitle());
+    }
 }
