@@ -45,4 +45,15 @@ public class AdvertTest {
     public void hasCategory() {
         assertEquals(Category.TECHNOLOGY, advert.getCategory());
     }
+
+    @Test
+    public void canChangeCategory(){
+        advert.setCategory(Category.MISCELLANEOUS);
+        assertEquals(Category.MISCELLANEOUS, advert.getCategory());
+    }
+
+    @Test
+    public void hasPrice() {
+        assertEquals(50.00, advert.getPrice(),0.01);
+    }
 }
