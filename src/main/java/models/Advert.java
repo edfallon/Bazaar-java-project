@@ -1,7 +1,10 @@
 package models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name="adverts")
 public class Advert {
 
     private int id;
@@ -25,6 +28,9 @@ public class Advert {
         this.comments = new ArrayList<>();
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -33,6 +39,7 @@ public class Advert {
         this.id = id;
     }
 
+    @Column(name="title")
     public String getTitle() {
         return title;
     }
@@ -41,6 +48,7 @@ public class Advert {
         this.title = title;
     }
 
+    @Column(name="description")
     public String getDescription() {
         return description;
     }
@@ -49,6 +57,7 @@ public class Advert {
         this.description = description;
     }
 
+    @Column(name="category")
     public Category getCategory() {
         return category;
     }
@@ -57,6 +66,7 @@ public class Advert {
         this.category = category;
     }
 
+    @Column(name="price")
     public double getPrice() {
         return price;
     }
@@ -65,6 +75,7 @@ public class Advert {
         this.price = price;
     }
 
+    @Column(name="location")
     public String getLocation() {
         return location;
     }
@@ -73,6 +84,8 @@ public class Advert {
         this.location = location;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     public User getUser() {
         return user;
     }
@@ -81,6 +94,7 @@ public class Advert {
         this.user = user;
     }
 
+    @Column(name="photo")
     public String getPhotourl() {
         return photourl;
     }
@@ -89,6 +103,7 @@ public class Advert {
         this.photourl = photourl;
     }
 
+    @OneToMany(mappedBy = "advert")
     public ArrayList<Comment> getComments() {
         return comments;
     }

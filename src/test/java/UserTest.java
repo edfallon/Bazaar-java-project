@@ -12,7 +12,7 @@ public class UserTest {
     @Before
     public void setUp() {
 
-        user = new User("Bob Smith", "BobSmith1@hotmail.co.uk");
+        user = new User("Bob Smith", "BobSmith1@hotmail.com");
 
     }
 
@@ -23,7 +23,7 @@ public class UserTest {
 
     @Test
     public void hasEmailAddress() {
-        assertEquals("bobsmith1@hotmail.com", user.getEmail());
+        assertEquals("BobSmith1@hotmail.com", user.getEmail());
     }
 
     @Test
