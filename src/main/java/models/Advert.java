@@ -2,6 +2,8 @@ package models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="adverts")
@@ -15,7 +17,7 @@ public class Advert {
     private String location;
     private User user;
     private String photourl;
-    private ArrayList<Comment> comments;
+    private Set<Comment> comments;
 
     public Advert(String title, String description, Category category, double price, String location, User user, String photourl) {
         this.title = title;
@@ -25,7 +27,7 @@ public class Advert {
         this.location = location;
         this.user = user;
         this.photourl = photourl;
-        this.comments = new ArrayList<>();
+        this.comments = new HashSet<>();
     }
 
     @Id
@@ -104,11 +106,12 @@ public class Advert {
     }
 
     @OneToMany(mappedBy = "advert")
-    public ArrayList<Comment> getComments() {
+    public Set<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(ArrayList<Comment> comments) {
+    public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
 }
+
