@@ -31,4 +31,9 @@ public class CommentTest {
         comment.setTitle("different question");
         assertEquals("different question", comment.getTitle());
     }
+
+    @Test
+    public void hasCommentText() {
+        assertEquals("Does product have any changeable covers?", comment.getText());
+    }
 }
