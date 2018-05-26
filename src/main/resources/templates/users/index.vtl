@@ -12,6 +12,7 @@
             <th> Photo</th>
             <th>Price</th>
             <th>Location</th>
+            <th>Delete</th>
         </tr>
 
             #foreach($advert in $adverts)
@@ -22,6 +23,9 @@
             <td>$advert.getPhotourl()</td>
             <td>$advert.getPrice()</td>
             <td>$advert.getLocation()</td>
+            <td><form action="/adverts/$advert.getId()/delete" method="post">
+                <input type="submit" value="Delete" class="button center">
+            </form></td>
         <tr>
         #end
     </table>
