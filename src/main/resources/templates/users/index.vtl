@@ -1,0 +1,24 @@
+<p class="pageHeader">All Adverts</p>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th> Photo</th>
+            <th>Price</th>
+            <th>Location</th>
+        </tr>
+        #foreach($advert in $users )
+        <tr>
+            <td>$advert.getCategory()</td>
+            <td>$advert.Title()</td>
+            <td>$advert.getDescription()</td>
+            <td>$advert.getPhoto()</td>
+            <td>$advert.getPrice()</td>
+            <td>$advert.getLocation()</td>
+        <tr>
+            #end
+    </table>
+</div>

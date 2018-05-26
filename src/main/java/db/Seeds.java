@@ -5,6 +5,8 @@ import models.Category;
 import models.Comment;
 import models.User;
 
+import java.util.List;
+
 public class Seeds {
     public static void seedData(){
         DBHelper.deleteAll(Advert.class);
@@ -13,6 +15,7 @@ public class Seeds {
 
         User user1 = new User("Bob Smith", "bobsmith1@hotmail.com");
         DBHelper.save(user1);
+
 
         Advert advert1 = new Advert("Nokia 3310", "Classic Nokia indestructable mobile phone for sale", Category.TECHNOLOGY, 50.00, "Glasgow", user1, "testphoto.imgur.com");
         DBHelper.save(advert1);
