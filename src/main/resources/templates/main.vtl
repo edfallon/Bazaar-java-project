@@ -1,5 +1,17 @@
 <h1>Bazaar</h1>
 
+<nav>
+    <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/user/$user.getId()">My Account</a></li>
+        <li><a href="/login">login</a></li>
+        <li><form action="/search" method="post">
+            <input type="search" name ="query" placeholder="search for an item">
+            <input type="submit" value="search">
+        </form></li>
+
+    </ul>
+</nav>
 
 <div>
 <a href="/advert" class="button center">Appliances</a>

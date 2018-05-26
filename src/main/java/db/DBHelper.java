@@ -2,10 +2,8 @@ package db;
 
 import models.Advert;
 import models.User;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -125,6 +123,22 @@ public class DBHelper {
         System.out.println(result);
         return result;
     }
+
+    public static List<Advert> search(String string){
+        session = HibernateUtil.getSessionFactory().openSession();
+            List<Advert> results = null;
+        try {
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.ilike("title", "%" + string + "%", MatchMode.ANYWHERE));
+            results = cr.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        } return results;
+
+    }
+
 
 
 
