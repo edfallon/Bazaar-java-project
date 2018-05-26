@@ -48,6 +48,14 @@ public class UserController {
 
         }, new VelocityTemplateEngine());
 
+        post ("/adverts/:id/delete", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            Advert advertToDelete = DBHelper.find(id, Advert.class);
+            DBHelper.delete(advertToDelete);
+            res.redirect("/");
+            return null;
+        }, new VelocityTemplateEngine());
+
 
     }
 }
