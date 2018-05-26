@@ -13,11 +13,12 @@ import static spark.SparkBase.staticFileLocation;
 public class MainController {
 
     public static void main(String[] args) {
-
         Seeds.seedData();
+
 
         staticFileLocation("/public");
         LoginController loginController = new LoginController();
+        AdvertController advertController = new AdvertController();
 
         get("/", (req, res) -> {
             return "Hello, World!";

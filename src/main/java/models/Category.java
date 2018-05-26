@@ -18,7 +18,14 @@ public enum Category {
     FREEBIES("Freebies"),
     MISCELLANEOUS("Miscellaneous");
 
+    private String value;
+
     Category(String value) {
+        this.value = value;
+    }
+
+    public String getValue(){
+        return value;
     }
 }
 

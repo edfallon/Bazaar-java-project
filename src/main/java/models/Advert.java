@@ -30,6 +30,9 @@ public class Advert {
         this.comments = new HashSet<>();
     }
 
+    public Advert() {
+    }
+
     @Id
     @GeneratedValue
     @Column(name="id")
