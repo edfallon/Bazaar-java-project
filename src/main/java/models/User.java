@@ -71,4 +71,8 @@ public class User {
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
+
+    public void addAdvertToUser(Advert advert){
+        this.adverts.add(advert);
+    }
 }

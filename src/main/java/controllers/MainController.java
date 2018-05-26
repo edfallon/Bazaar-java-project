@@ -18,7 +18,8 @@ public class MainController {
 
         staticFileLocation("/public");
         LoginController loginController = new LoginController();
-        AdvertController advertController = new AdvertController();
+        UserController userController = new UserController();
+
 
         get("/", (req, res) -> {
             return "Hello, World!";
