@@ -42,11 +42,12 @@ public class UserController {
             List<Advert> adverts = DBUser.findAllAdsForUser(user);
             Map<String, Object> model = new HashMap<>();
             model.put("user", user);
-            model.put("advert", adverts);
+            model.put("adverts", adverts);
             model.put("template", "templates/users/index.vtl");
             return new ModelAndView(model, "templates/users/index.vtl");
 
         }, new VelocityTemplateEngine());
+
 
     }
 }

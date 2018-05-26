@@ -1,5 +1,8 @@
 <p class="pageHeader">All Adverts</p>
 
+<p>User: $user.getName()</p>
+
+<p class="pageHeader">Adverts</p>
 <div class="container">
     <table>
         <tr>
@@ -10,16 +13,16 @@
             <th>Price</th>
             <th>Location</th>
         </tr>
-        #foreach($user in users)
-        #
+
+            #foreach($advert in $adverts)
         <tr>
             <td>$advert.getCategory()</td>
-            <td>$advert.Title()</td>
+            <td>$advert.getTitle()</td>
             <td>$advert.getDescription()</td>
-            <td>$advert.getPhoto()</td>
+            <td>$advert.getPhotourl()</td>
             <td>$advert.getPrice()</td>
             <td>$advert.getLocation()</td>
         <tr>
-            #end
+        #end
     </table>
 </div>
