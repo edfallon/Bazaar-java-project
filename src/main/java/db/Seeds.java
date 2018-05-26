@@ -9,9 +9,10 @@ import java.util.List;
 
 public class Seeds {
     public static void seedData(){
-        DBHelper.deleteAll(User.class);
+
         DBHelper.deleteAll(Advert.class);
         DBHelper.deleteAll(Comment.class);
+        DBHelper.deleteAll(User.class);
 
 
         User user1 = new User("Bob Smith", "bobsmith1@hotmail.com");
