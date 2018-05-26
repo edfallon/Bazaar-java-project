@@ -34,4 +34,23 @@ public class DBAdvert {
         }
         return comments;
     }
+
+    public static User findUserForAdvert(Advert advert){
+        session = HibernateUtil.getSessionFactory().openSession();
+        User user = null;
+        try {
+            transaction = session.beginTransaction();
+            Criteria cr = session.createCriteria(User.class);
+            cr.add(Restrictions.eq("advert", advert));
+            user = (User)cr.uniqueResult();
+
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return user;
+    }
 }

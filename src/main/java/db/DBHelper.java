@@ -1,5 +1,7 @@
 package db;
 
+import models.Advert;
+import models.User;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -28,16 +30,31 @@ public class DBHelper {
         }
     }
 
-    public static <T> void deleteAll(Class classType){
+//    public static <T> void deleteAll(Class classType){
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        try {
+//            transaction = session.beginTransaction();
+//            Criteria cr = session.createCriteria(classType);
+//            List<T> results = cr.list();
+//            for (T result : results){
+//                session.delete(result);
+//            }
+//        } catch (HibernateException e){
+//            transaction.rollback();
+//            e.printStackTrace();
+//        } finally {
+//            session.close();
+//        }
+//    }
+
+    public static void deleteAll(Class classType){
         session = HibernateUtil.getSessionFactory().openSession();
         try {
+            String hql = "DELETE FROM " + classType.getName();
             transaction = session.beginTransaction();
-            Criteria cr = session.createCriteria(classType);
-            List<T> results = cr.list();
-            for (T result : results){
-                session.delete(result);
-            }
-        } catch (HibernateException e){
+            session.createQuery(hql).executeUpdate();
+            transaction.commit();
+        } catch (HibernateException e) {
             transaction.rollback();
             e.printStackTrace();
         } finally {
@@ -108,6 +125,8 @@ public class DBHelper {
         System.out.println(result);
         return result;
     }
+
+
 
 
 }

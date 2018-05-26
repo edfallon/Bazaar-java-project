@@ -9,9 +9,10 @@ import java.util.List;
 
 public class Seeds {
     public static void seedData(){
+        DBHelper.deleteAll(User.class);
         DBHelper.deleteAll(Advert.class);
         DBHelper.deleteAll(Comment.class);
-        DBHelper.deleteAll(User.class);
+
 
         User user1 = new User("Bob Smith", "bobsmith1@hotmail.com");
         DBHelper.save(user1);
@@ -23,6 +24,7 @@ public class Seeds {
 
         Advert advert2 = new Advert ("Dyson", "new Dyson cordless vacuum cleaner for sale", Category.APPLIANCES, 250.00, "edinburgh", user2, "photourl.url.com");
         DBHelper.save(advert2);
+      
         Comment comment1 = new Comment("Question about product", "Does product have any changeable covers?", user1, advert1);
         DBHelper.save(comment1);
     }
