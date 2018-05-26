@@ -1,6 +1,7 @@
 package controllers;
 
 import db.Seeds;
+import models.Advert;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -19,6 +20,7 @@ public class MainController {
         staticFileLocation("/public");
         LoginController loginController = new LoginController();
         UserController userController = new UserController();
+        AdvertController advertController = new AdvertController();
 
 
         get("/", (req, res) -> {
