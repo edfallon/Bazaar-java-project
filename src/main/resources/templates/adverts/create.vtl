@@ -1,11 +1,12 @@
-<h2 class="pageHeader">New Advert</h2>
+<h2 class="pageHeader" xmlns:th="http://www.w3.org/1999/xhtml">New Advert</h2>
 
 <form action="/" method="post">
+
     <label for="category">Category:</label>
     <select name="category" id="category">
-        #foreach($category in $category)
+        #foreach($category in $categories)
         <option value="$category.getValue()">$category.getValue()</option>
-            #end
+        #end
     </select>
 
     <label for="title">Title</label>
