@@ -51,7 +51,7 @@ public class Comment {
         this.text = text;
     }
 
-   @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false )
     public User getUser() {
         return user;
