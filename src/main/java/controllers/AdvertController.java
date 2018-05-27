@@ -42,6 +42,49 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        post ("/advert", (req, res) -> {
+            String category = req.queryParams("category");
+            String title = req.queryParams("title");
+            String description = req.queryParams("description");
+            String photo = req.queryParams("photourl");
+            int price = Integer.parseInt(req.queryParams("price"));
+            String location = req.queryParams("location");
+            Advert advert = new Advert(title, description, category, price, location, user, photo);
+            DBHelper.save(advert);
+            res.redirect("/");
+            return null;
+        }, new VelocityTemplateEngine());
+
+        post ("/advert/:id/delete", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            Advert advertToDelete = DBHelper.find(id, Advert.class);
+            DBHelper.delete(advertToDelete);
+            res.redirect("/");
+            return null;
+        }, new VelocityTemplateEngine());
+
+        get("/advert/:id/edit", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Advert advert = DBHelper.find(intId, Advert.class);
+            List<Category> categories = new ArrayList<>( Arrays.asList(Category.values()));
+            Map<String, Object> model = new HashMap<>();
+            model.put("categories", categories);
+            model.put("template", "templates/adverts/edit.vtl");
+            model.put("advert", advert);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/advert/:category", (req, res) -> {
+            String selectedCatergory = req.params(":category");
+            Map<String, Object> model = new HashMap<>();
+            List<Advert> adverts = DBHelper.getAll(Advert.class);
+            model.put("selectCategory", selectedCatergory);
+            model.put("template", "templates/advert/show_by_category.vtl");
+            model.put("adverts", adverts);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
 
 
 
