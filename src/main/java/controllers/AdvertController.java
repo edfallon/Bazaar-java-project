@@ -23,6 +23,8 @@ public class AdvertController {
         get ("/advert/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Category> categories = new ArrayList<>( Arrays.asList(Category.values()));
+            User loggedInUser = LoginController.getLoggedInUser(req,res);
+            model.put("user", loggedInUser);
             model.put("categories", categories);
             model.put("template", "templates/adverts/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
@@ -52,18 +54,21 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-//        post ("/advert", (req, res) -> {
-//            String category = req.queryParams("category");
-//            String title = req.queryParams("title");
-//            String description = req.queryParams("description");
-//            String photo = req.queryParams("photourl");
-//            int price = Integer.parseInt(req.queryParams("price"));
-//            String location = req.queryParams("location");
-//            Advert advert = new Advert(title, description, category, price, location, user, photo);
-//            DBHelper.save(advert);
-//            res.redirect("/");
-//            return null;
-//        }, new VelocityTemplateEngine());
+        post ("/advert", (req, res) -> {
+            User user = LoginController.getLoggedInUser(req, res);
+            int id = user.getId();
+            String category = req.queryParams("category");
+            Category catEnum = Category.valueOf(category);
+            String title = req.queryParams("title");
+            String description = req.queryParams("description");
+            String photo = req.queryParams("photourl");
+            int price = Integer.parseInt(req.queryParams("price"));
+            String location = req.queryParams("location");
+            Advert advert = new Advert(title, description, catEnum, price, location, user, photo);
+            DBHelper.save(advert);
+            res.redirect("/user/" + id);
+            return null;
+        }, new VelocityTemplateEngine());
 
         post ("/advert/:id/delete", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
