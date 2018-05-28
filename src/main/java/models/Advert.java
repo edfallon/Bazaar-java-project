@@ -62,6 +62,7 @@ public class Advert {
         this.description = description;
     }
 
+    @Enumerated(EnumType.STRING)
     @Column(name="category")
     public Category getCategory() {
         return category;

@@ -31,9 +31,10 @@ public class AdvertController {
         }, new VelocityTemplateEngine());
 
         get("/advert/:category", (req, res) -> {
-            String selectedCategory = req.params(":category");
+            String selectedCategory = req.params("category").toUpperCase();
+            Category enumCat = Category.valueOf(selectedCategory);
             Map<String, Object> model = new HashMap<>();
-            List<Advert> adverts = DBHelper.getAll(Advert.class);
+            List<Advert> adverts = DBAdvert.findAdvertsByCategory(enumCat);
             model.put("selectedCategory", selectedCategory);
             model.put("template", "templates/adverts/show_by_category.vtl");
             model.put("adverts", adverts);
