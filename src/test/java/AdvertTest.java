@@ -1,5 +1,6 @@
 import models.Advert;
 import models.Category;
+import models.Comment;
 import models.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -88,5 +89,12 @@ public class AdvertTest {
     public void canChangePhotoURL() {
         advert.setPhotourl("differentphoto.imgur.com");
         assertEquals("differentphoto.imgur.com", advert.getPhotourl());
+    }
+
+    @Test
+    public void canAddCommentToAdvert() {
+        Comment comment = new Comment("is it me you're looking for", user, advert);
+        advert.addCommentToAdvert(comment);
+        assertEquals(1, advert.getComments().size());
     }
 }

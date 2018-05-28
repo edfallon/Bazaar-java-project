@@ -7,13 +7,12 @@ import javax.persistence.*;
 public class Comment {
 
     private int id;
-    private String title;
     private String text;
     private User user;
     private Advert advert;
 
-    public Comment(String title, String text, User user, Advert advert) {
-        this.title = title;
+    public Comment(String text, User user, Advert advert) {
+
         this.text = text;
         this.user = user;
         this.advert = advert;
@@ -33,14 +32,6 @@ public class Comment {
         this.id = id;
     }
 
-    @Column(name="title")
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     @Column(name="text")
     public String getText() {
@@ -70,4 +61,6 @@ public class Comment {
     public void setAdvert(Advert advert) {
         this.advert = advert;
     }
+
+
 }
