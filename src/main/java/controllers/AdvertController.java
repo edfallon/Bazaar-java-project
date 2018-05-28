@@ -25,7 +25,7 @@ public class AdvertController {
             Map<String, Object> model = new HashMap<>();
             List<Category> categories = new ArrayList<>( Arrays.asList(Category.values()));
             User loggedInUser = LoginController.getLoggedInUser(req,res);
-            model.put("user", loggedInUser);
+            model.put("loggedInUser", loggedInUser);
             model.put("categories", categories);
             model.put("template", "templates/adverts/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
@@ -38,7 +38,7 @@ public class AdvertController {
             List<Category> categories = new ArrayList<>( Arrays.asList(Category.values()));
             Map<String, Object> model = new HashMap<>();
             User loggedInUser = LoginController.getLoggedInUser(req, res);
-            model.put("user", loggedInUser);
+            model.put("loggedInUser", loggedInUser);
             model.put("categories", categories);
             model.put("template", "templates/adverts/edit.vtl");
             model.put("advert", advert);
@@ -50,7 +50,7 @@ public class AdvertController {
             Category enumCat = Category.valueOf(selectedCategory);
             Map<String, Object> model = new HashMap<>();
             User loggedInUser = LoginController.getLoggedInUser(req, res);
-            model.put("user", loggedInUser);
+            model.put("loggedInUser", loggedInUser);
             List<Advert> adverts = DBAdvert.findAdvertsByCategory(enumCat);
             model.put("selectedCategory", selectedCategory);
             model.put("template", "templates/adverts/show_by_category.vtl");
@@ -67,7 +67,7 @@ public class AdvertController {
             Map<String, Object> model = new HashMap<>();
             User loggedInUser = LoginController.getLoggedInUser(req, res);
             model.put("comments", comments);
-            model.put("user", loggedInUser);
+            model.put("loggedInUser", loggedInUser);
             model.put("advert", advert);
             model.put("aduser", aduser);
             model.put("template", "templates/adverts/show.vtl");
@@ -87,17 +87,6 @@ public class AdvertController {
             String location = req.queryParams("location");
             Advert advert = new Advert(title, description, catEnum, price, location, user, photo);
             DBHelper.save(advert);
-            String text = req.queryParams("text");
-
-
-
-
-
-
-
-
-            Comment comment = new Comment(text, user, advert);
-            DBHelper.save(comment);
             res.redirect("/user/" + id);
             return null;
         }, new VelocityTemplateEngine());
@@ -121,6 +110,17 @@ public class AdvertController {
             advert.setPrice(price);
             advert.setLocation(location);
             DBHelper.update(advert);
+            res.redirect("/advert/" + id);
+            return null;
+        }, new VelocityTemplateEngine());
+
+        post ("advert/:id/comment", (req, res) -> {
+            User user = LoginController.getLoggedInUser(req, res);
+            int id = Integer.parseInt(req.params("id"));
+            Advert advert = DBHelper.find(id, Advert.class);
+            String text = req.queryParams("comment");
+            Comment comment = new Comment(text, user, advert);
+            DBHelper.save(comment);
             res.redirect("/advert/" + id);
             return null;
         }, new VelocityTemplateEngine());

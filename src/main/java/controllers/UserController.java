@@ -41,6 +41,8 @@ public class UserController {
             User user = DBHelper.find(id, User.class);
             List<Advert> adverts = DBUser.findAllAdsForUser(user);
             Map<String, Object> model = new HashMap<>();
+            User loggedInUser = LoginController.getLoggedInUser(req, res);
+            model.put("loggedInUser", loggedInUser);
             model.put("user", user);
             model.put("adverts", adverts);
             model.put("template", "templates/users/index.vtl");
