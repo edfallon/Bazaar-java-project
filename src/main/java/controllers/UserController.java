@@ -44,7 +44,7 @@ public class UserController {
             model.put("user", user);
             model.put("adverts", adverts);
             model.put("template", "templates/users/index.vtl");
-            return new ModelAndView(model, "templates/users/index.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());
 
