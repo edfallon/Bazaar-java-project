@@ -13,10 +13,11 @@
 </div>
 <p>Comments</p>
 <div>
-    <form action="">
+    <form action="/advert/$advert.getId()/comment" method="post">
 
         <label for="comment">Comment:</label>
         <input type="text" name="comment" required="true" class="inputbox" id="comment">
+        <input type="hidden" name="id" value="$advert.getId()">
         <input type="submit" value="Save" class="button">
     </form>
 </div>
@@ -24,7 +25,7 @@
 #foreach($comment in $comments)
 <p>
     $comment.getText()
-    $comment.getUser().getName()
+   posted by:<a href="/user/$comment.getUser().getId()">$comment.getUser().getName()</a>
 </p>
 #end
 

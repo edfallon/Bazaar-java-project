@@ -87,17 +87,6 @@ public class AdvertController {
             String location = req.queryParams("location");
             Advert advert = new Advert(title, description, catEnum, price, location, user, photo);
             DBHelper.save(advert);
-            String text = req.queryParams("text");
-
-
-
-
-
-
-
-
-            Comment comment = new Comment(text, user, advert);
-            DBHelper.save(comment);
             res.redirect("/user/" + id);
             return null;
         }, new VelocityTemplateEngine());
@@ -121,6 +110,17 @@ public class AdvertController {
             advert.setPrice(price);
             advert.setLocation(location);
             DBHelper.update(advert);
+            res.redirect("/advert/" + id);
+            return null;
+        }, new VelocityTemplateEngine());
+
+        post ("advert/:id/comment", (req, res) -> {
+            User user = LoginController.getLoggedInUser(req, res);
+            int id = Integer.parseInt(req.params("id"));
+            Advert advert = DBHelper.find(id, Advert.class);
+            String text = req.queryParams("comment");
+            Comment comment = new Comment(text, user, advert);
+            DBHelper.save(comment);
             res.redirect("/advert/" + id);
             return null;
         }, new VelocityTemplateEngine());
