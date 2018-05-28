@@ -1,9 +1,8 @@
-<p class="pageHeader">All Adverts</p>
+<h2>Search Results</h2>
 
-<p>User: $user.getName()</p>
-
-<p class="pageHeader">Adverts</p>
 <div class="container">
+    #if($adverts.size() > 0)
+    <p>Displaying $adverts.size() results</p>
     <table>
         <tr>
             <th>Category</th>
@@ -12,10 +11,9 @@
             <th> Photo</th>
             <th>Price</th>
             <th>Location</th>
-            <th>Delete</th>
         </tr>
 
-            #foreach($advert in $adverts)
+        #foreach($advert in $adverts)
         <tr>
             <td>$advert.getCategory()</td>
             <td>$advert.getTitle()</td>
@@ -23,10 +21,10 @@
             <td>$advert.getPhotourl()</td>
             <td>$advert.getPrice()</td>
             <td>$advert.getLocation()</td>
-            <td><form action="/adverts/$advert.getId()/delete" method="post">
-                <input type="submit" value="Delete" class="button center">
-            </form></td>
         <tr>
-        #end
+            #end
     </table>
+    #else
+    <p>Sorry, no results</p>
+    #end
 </div>

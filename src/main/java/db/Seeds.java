@@ -25,7 +25,10 @@ public class Seeds {
 
         Advert advert2 = new Advert ("Dyson", "new Dyson cordless vacuum cleaner for sale", Category.APPLIANCES, 250.00, "edinburgh", user2, "photourl.url.com");
         DBHelper.save(advert2);
-      
+
+        Advert advert3 = new Advert("Piano for Sale", "Yamaha U3H upright piano in excellent condition", Category.MUSICALINSTRUMENTS, 3000.00, "Glasgow", user1, "photo.com");
+        DBHelper.save(advert3);
+
         Comment comment1 = new Comment("Question about product", "Does product have any changeable covers?", user1, advert1);
         DBHelper.save(comment1);
     }
