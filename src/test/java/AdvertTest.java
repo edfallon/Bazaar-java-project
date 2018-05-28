@@ -93,7 +93,7 @@ public class AdvertTest {
 
     @Test
     public void canAddCommentToAdvert() {
-        Comment comment = new Comment("Hello", "is it me you're looking for", user, advert);
+        Comment comment = new Comment("is it me you're looking for", user, advert);
         advert.addCommentToAdvert(comment);
         assertEquals(1, advert.getComments().size());
     }

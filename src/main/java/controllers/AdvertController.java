@@ -87,6 +87,17 @@ public class AdvertController {
             String location = req.queryParams("location");
             Advert advert = new Advert(title, description, catEnum, price, location, user, photo);
             DBHelper.save(advert);
+            String text = req.queryParams("text");
+
+
+
+
+
+
+
+
+            Comment comment = new Comment(text, user, advert);
+            DBHelper.save(comment);
             res.redirect("/user/" + id);
             return null;
         }, new VelocityTemplateEngine());

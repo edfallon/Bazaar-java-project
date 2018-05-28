@@ -18,19 +18,11 @@ public class CommentTest {
 
         user = new User("Bob Smith", "bobsmith1@hotmail.com");
         advert = new Advert("Nokia 3310", "Classic Nokia indestructable mobile phone for sale", Category.TECHNOLOGY, 50.00, "Glasgow", user, "testphoto.imgur.com");
-        comment = new Comment("Question about product", "Does product have any changeable covers?", user, advert);
+        comment = new Comment("Does product have any changeable covers?", user, advert);
     }
 
-    @Test
-    public void hasTitle() {
-        assertEquals("Question about product", comment.getTitle());
-    }
 
-    @Test
-    public void canSetTitle() {
-        comment.setTitle("different question");
-        assertEquals("different question", comment.getTitle());
-    }
+
 
     @Test
     public void hasCommentText() {

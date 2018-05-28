@@ -11,8 +11,20 @@
     <p> Posted by: $advert.getUser().getName() <a href="mailto:$advert.getUser().getEmail()?subject=$advert.getTitle()">Contact</a></p>
 
 </div>
-
+<p>Comments</p>
 <div>
+    <form action="">
 
+        <label for="comment">Comment:</label>
+        <input type="text" name="comment" required="true" class="inputbox" id="comment">
+        <input type="submit" value="Save" class="button">
+    </form>
 </div>
+
+#foreach($comment in $comments)
+<p>
+    $comment.getText()
+    $comment.getUser().getName()
+</p>
+#end
 
