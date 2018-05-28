@@ -19,9 +19,11 @@
             <td>$advert.getTitle()</td>
             <td>$advert.getPrice()</td>
             <td>$advert.getLocation()</td>
-            <td><form action="/adverts/$advert.getId()/delete" method="post">
+            <td><form action="/advert/$advert.getId()/delete" method="post">
                 <input type="submit" value="Delete" class="button center">
             </form></td>
+            <td><a href="/advert/$advert.getId()/edit">Edit</a>
+            </td>
         <tr>
         #end
     </table>

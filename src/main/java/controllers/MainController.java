@@ -41,7 +41,8 @@ public class MainController {
             Map<String, Object> model = new HashMap<>();
             List<Advert> results = DBHelper.search("query");
             model.put("results", results);
-            return new ModelAndView(model, "templates/search.vtl");
+            model.put("templates", "templates/search.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
         post("/search", (req, res) -> {
@@ -50,7 +51,8 @@ public class MainController {
             String theQuery = req.queryParams("query");
             List<Advert> adverts = DBHelper.search(theQuery);
             model.put("adverts", adverts);
-            return new ModelAndView(model, "templates/search.vtl");
+            model.put("template", "templates/search.vtl" );
+            return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
     }
