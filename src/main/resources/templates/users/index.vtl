@@ -19,11 +19,13 @@
             <td>$advert.getTitle()</td>
             <td>$advert.getPrice()</td>
             <td>$advert.getLocation()</td>
+            #if($loggedInUser.getId() == $user.getId())
             <td><form action="/advert/$advert.getId()/delete" method="post">
                 <input type="submit" value="Delete" class="button center">
             </form></td>
             <td><a href="/advert/$advert.getId()/edit">Edit</a>
             </td>
+            #end
         <tr>
         #end
     </table>
