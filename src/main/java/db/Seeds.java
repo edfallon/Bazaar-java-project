@@ -10,15 +10,19 @@ import java.util.List;
 public class Seeds {
     public static void seedData(){
 
-        DBHelper.deleteAll(Advert.class);
         DBHelper.deleteAll(Comment.class);
+        DBHelper.deleteAll(Advert.class);
         DBHelper.deleteAll(User.class);
+
+
 
 
         User user1 = new User("Bob Smith", "bobsmith1@hotmail.com");
         DBHelper.save(user1);
         User user2 = new User("Fred Mercury", "IAmTheChampion@gmail.com");
         DBHelper.save(user2);
+
+        User user = DBUser.findByEmail("bobsmith1@hotmail.com");
 
         Advert advert1 = new Advert("Nokia 3310", "Classic Nokia indestructable mobile phone for sale", Category.TECHNOLOGY, 50.00, "Glasgow", user1, "testphoto.imgur.com");
         DBHelper.save(advert1);
