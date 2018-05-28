@@ -117,5 +117,9 @@ public class Advert {
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
+
+    public void addCommentToAdvert(Comment comment){
+        this.comments.add(comment);
+    }
 }
 

@@ -70,4 +70,6 @@ public class Comment {
     public void setAdvert(Advert advert) {
         this.advert = advert;
     }
+
+
 }

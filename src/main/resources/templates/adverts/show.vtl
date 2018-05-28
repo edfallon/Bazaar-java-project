@@ -7,8 +7,12 @@
     <p>$advert.getLocation()</p>
 
 
-    #if ($aduser)
-    <p> Posted by: $aduser.getName()</p>
-    #end
+
+    <p> Posted by: $advert.getUser().getName() <a href="mailto:$advert.getUser().getEmail()?subject=$advert.getTitle()">Contact</a></p>
+
+</div>
+
+<div>
+
 </div>
 

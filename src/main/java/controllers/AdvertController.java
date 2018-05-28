@@ -4,6 +4,7 @@ import db.DBAdvert;
 import db.DBHelper;
 import models.Advert;
 import models.Category;
+import models.Comment;
 import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -61,9 +62,11 @@ public class AdvertController {
         get("/advert/:id", (req, res) -> {
             int id = Integer.parseInt(req.params("id"));
             Advert advert = DBHelper.find(id, Advert.class);
+            List<Comment> comments = DBAdvert.findAllCommentsForAdvert(advert);
             User aduser = DBAdvert.findUserForAdvert(advert);
             Map<String, Object> model = new HashMap<>();
             User loggedInUser = LoginController.getLoggedInUser(req, res);
+            model.put("comments", comments);
             model.put("user", loggedInUser);
             model.put("advert", advert);
             model.put("aduser", aduser);

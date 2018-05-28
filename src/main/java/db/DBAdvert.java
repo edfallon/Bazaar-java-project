@@ -72,4 +72,23 @@ public class DBAdvert {
         }
         return adverts;
     }
+
+    public static List<Comment> findCommentsForAdvert(Advert advert){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Comment> comments = null;
+        try {
+            transaction = session.beginTransaction();
+            Criteria cr = session.createCriteria(Comment.class);
+            cr.add(Restrictions.eq("advert", advert));
+            comments = cr.list();
+
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return comments;
+    }
 }
