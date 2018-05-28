@@ -11,7 +11,7 @@
             <th></th>
         </tr>
         #foreach($advert in $adverts)
-        #if ($category == $selectedCategory)
+        #if ($category == $category.getValues())
         <tr>
             <td>$advert.getTitle()</td>
             <td>$advert.getPrice</td>

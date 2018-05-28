@@ -35,6 +35,22 @@ public class DBUser {
         return adverts;
     }
 
+//    SELECT * FROM users WHERE users.e-mail = $1
+    public static User findByEmail(String email){
+        session = HibernateUtil.getSessionFactory().openSession();
+        User user = null;
+        try {
+            Criteria cr = session.createCriteria(User.class);
+            cr.add(Restrictions.eq("email", email));
+           user = (User)cr.uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return user;
+    }
+
     public static List<Comment> findAllCommentsForUser(User user){
         session = HibernateUtil.getSessionFactory().openSession();
         List<Comment> comments = null;

@@ -54,7 +54,7 @@ public class User {
         this.email = email;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     public Set<Advert> getAdverts() {
         return adverts;
     }
@@ -63,7 +63,7 @@ public class User {
         this.adverts = adverts;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     public Set<Comment> getComments() {
         return comments;
     }

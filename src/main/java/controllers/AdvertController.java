@@ -28,6 +28,16 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        get("/advert/:category", (req, res) -> {
+            String selectedCategory = req.params(":category");
+            Map<String, Object> model = new HashMap<>();
+            List<Advert> adverts = DBHelper.getAll(Advert.class);
+            model.put("selectedCategory", selectedCategory);
+            model.put("template", "templates/adverts/show_by_category.vtl");
+            model.put("adverts", adverts);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
 
         get("/advert/:id", (req, res) -> {
             int id = Integer.parseInt(req.params("id"));
@@ -42,18 +52,18 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        post ("/advert", (req, res) -> {
-            String category = req.queryParams("category");
-            String title = req.queryParams("title");
-            String description = req.queryParams("description");
-            String photo = req.queryParams("photourl");
-            int price = Integer.parseInt(req.queryParams("price"));
-            String location = req.queryParams("location");
-            Advert advert = new Advert(title, description, category, price, location, user, photo);
-            DBHelper.save(advert);
-            res.redirect("/");
-            return null;
-        }, new VelocityTemplateEngine());
+//        post ("/advert", (req, res) -> {
+//            String category = req.queryParams("category");
+//            String title = req.queryParams("title");
+//            String description = req.queryParams("description");
+//            String photo = req.queryParams("photourl");
+//            int price = Integer.parseInt(req.queryParams("price"));
+//            String location = req.queryParams("location");
+//            Advert advert = new Advert(title, description, category, price, location, user, photo);
+//            DBHelper.save(advert);
+//            res.redirect("/");
+//            return null;
+//        }, new VelocityTemplateEngine());
 
         post ("/advert/:id/delete", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
@@ -75,15 +85,7 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/advert/:category", (req, res) -> {
-            String selectedCatergory = req.params(":category");
-            Map<String, Object> model = new HashMap<>();
-            List<Advert> adverts = DBHelper.getAll(Advert.class);
-            model.put("selectCategory", selectedCatergory);
-            model.put("template", "templates/advert/show_by_category.vtl");
-            model.put("adverts", adverts);
-            return new ModelAndView(model, "templates/layout.vtl");
-        }, new VelocityTemplateEngine());
+
 
 
 

@@ -1,5 +1,7 @@
 package controllers;
 
+import db.DBUser;
+import models.User;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -20,8 +22,8 @@ public class LoginController {
 
     private void setupEndPoints(){
         post("/login", (req, res) -> {
-            String inPuttedUsername = req.queryParams("username");
-            req.session().attribute("username", inPuttedUsername);
+            String inputtedemail = req.queryParams("email");
+            req.session().attribute("email", inputtedemail);
             res.redirect("/");
             return null;
         }, new VelocityTemplateEngine());
@@ -33,7 +35,7 @@ public class LoginController {
         }, new VelocityTemplateEngine());
 
         get("/logout", (req, res) -> {
-            req.session().removeAttribute("username");
+            req.session().removeAttribute("email");
             res.redirect("/");
             return null;
         }, new VelocityTemplateEngine());
@@ -42,12 +44,13 @@ public class LoginController {
 
     }
 
-    public static String getLoggedInUser(Request req, Response res){
-        String username = req.session().attribute("username");
-        if (username == null || username.isEmpty()){
+    public static User getLoggedInUser(Request req, Response res){
+        String email = req.session().attribute("email");
+        User user = DBUser.findByEmail(email);
+        if (user == null) {
             res.redirect("/login");
         }
-        return username;
+        return user;
 
     }
 
