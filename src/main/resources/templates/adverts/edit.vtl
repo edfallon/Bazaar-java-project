@@ -5,7 +5,11 @@
     <label for="category">Category:</label>
     <select name="category" id="category">
         #foreach($category in $categories)
+        #if($advert.getCategory().getValue() == $category.getValue())
+        <option value="$category" selected>$category.getValue()</option>
+        #else
         <option value="$category">$category.getValue()</option>
+        #end
         #end
     </select>
 
