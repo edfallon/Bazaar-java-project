@@ -1,0 +1,16 @@
+.scrollabletextbox {
+   height:160px;
+   width:600px;
+   font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+   font-size: 82%;
+   overflow:scroll;
+}
+
+header {
+    font-family:'Aclonica';
+    font-size: 200px;
+    color: goldenrod;
+    background: url(https://images6.alphacoders.com/405/405735.jpg);
+    background-size: 100%;
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+<p class="pageHeader">All Adverts</p>
+
+<p>User: $user.getName()</p>
+
+<p class="pageHeader">Adverts</p>
+<div class="container">
+    <table>
+
+
+            #foreach($advert in $adverts)
+        <tr>
+            <td>$advert.getCategory()</td>
+            <td>$advert.getTitle()</td>
+            <td>$advert.formattedPrice()</td>
+            <td>$advert.getLocation()</td>
+            <td><a href="/advert/$advert.getId()" class="button center">View advert</a></td>
+            #if($loggedInUser.getId() == $user.getId())
+            <td><form action="/advert/$advert.getId()/delete" method="post">
+                <input type="submit" value="Delete" class="button center">
+            </form></td>
+            <td><a href="/advert/$advert.getId()/edit">Edit</a>
+            </td>
+
+            #end
+        <tr>
+        #end
+    </table>
+</div>

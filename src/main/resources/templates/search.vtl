@@ -1,0 +1,31 @@
+<h2>Search Results</h2>
+
+<div class="container">
+    #if($adverts.size() > 0)
+    <p>Displaying $adverts.size() results</p>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th> Photo</th>
+            <th>Price</th>
+            <th>Location</th>
+        </tr>
+
+        #foreach($advert in $adverts)
+        <tr>
+            <td>$advert.getCategory()</td>
+            <td>$advert.getTitle()</td>
+            <td>$advert.getDescription()</td>
+            <td>$advert.getPhotourl()</td>
+            <td>$advert.formattedPrice()</td>
+            <td>$advert.getLocation()</td>
+            <td><a href="/advert/$advert.getId()" class="button center">See more</a></td>
+        <tr>
+            #end
+    </table>
+    #else
+    <p>Sorry, no results</p>
+    #end
+</div>

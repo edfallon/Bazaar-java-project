@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bazaar</title>
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
+
+<body>
+<header>BaZaAr</header>
+<p>Logged in as: $loggedInUser.getName()  <a href="/logout">Logout</a></p>
+
+<nav>
+    <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/user/$loggedInUser.getId()">My Account</a></li>
+        <li><a href="/login">login</a></li>
+        <li><a href="/advert/new">Create New Advert</a></li>
+        <li><form action="/search" method="post">
+            <input type="search" name ="query" placeholder="search for an item">
+            <input type="submit" value="search">
+        </form></li>
+
+    </ul>
+</nav>
+    <div class="container">
+        #parse( $template )
+    </div>
+
+</body>
+</html>

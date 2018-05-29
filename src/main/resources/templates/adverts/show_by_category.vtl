@@ -1,0 +1,29 @@
+<p class="pageHeader">Adverts by Category</p>
+
+
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Location</th>
+            <th></th>
+        </tr>
+
+        #foreach($advert in $adverts)
+
+
+        <tr>
+            <td>$advert.getTitle()</td>
+            <td>$advert.formattedPrice()</td>
+            <td>$advert.getLocation()</td>
+            <td><a href="/advert/$advert.getId()" class="button center">See more</a></td>
+        <tr>
+        #end
+
+
+    </table>
+
+
+</div>
