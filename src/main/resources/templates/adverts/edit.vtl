@@ -12,9 +12,6 @@
     <label for="title">Title</label>
     <input type="text" name="title" required="true" class="inputbox" id="title" value="$advert.getTitle()">
 
-    <label for="description">Description:</label>
-    <input type="text" name="description" required="true" class="inputbox" id="description" value="$advert.getDescription()">
-
     <label for="photo">Add Photo URL:</label>
     <input type="text" id="photo" name="photo" required="true" class="inputbox" value="$advert.getPhotourl()">
 
@@ -23,6 +20,11 @@
 
     <label for="location">Location:</label>
     <input type="text" name="location" required="true" class="inputbox" id="location" value="$advert.getLocation()">
+
+    <br>
+    <br>
+    <label for="description">Description:</label>
+    <textarea  cols="40" rows="5" name="description" required="true" class="inputbox" id="description"></textarea>
 
     <input type="submit" value="Save" class="button">
 </form>
