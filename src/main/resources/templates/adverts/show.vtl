@@ -1,0 +1,34 @@
+<div>
+    <p>$advert.getCategory()</p>
+    <p>$advert.getTitle()</p>
+    <p>$advert.getDescription()</p>
+    <p><img src="$advert.getPhotourl()" alt="Photo of item for sale"></p>
+    <p>£$advert.getPrice()</p>
+    <p>$advert.getLocation()</p>
+
+
+
+    <p> Posted by: $advert.getUser().getName() <a href="mailto:$advert.getUser().getEmail()?subject=$advert.getTitle()">Contact</a>  <a href="/user/$advert.getUser().getId()">See other adverts</a></p>
+
+</div>
+<p>Comments</p>
+<div class="commentbox">
+    <form action="/advert/$advert.getId()/comment" method="post">
+
+        <label for="comment">Comment:</label>
+        <input type="text" name="comment" required="true" class="inputbox" width=600px id="comment">
+        <input type="hidden" name="id" value="$advert.getId()">
+        <input type="submit" value="Save" class="button">
+    </form>
+</div>
+
+<div class="scrollabletextbox">
+
+#foreach($comment in $comments)
+    $comment.getText()
+   posted by:<a href="/user/$comment.getUser().getId()">$comment.getUser().getName()</a>
+    <br>
+    <br>
+    #end
+
+</div>
