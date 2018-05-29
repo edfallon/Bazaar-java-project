@@ -13,4 +13,17 @@ header {
     background: url(https://images6.alphacoders.com/405/405735.jpg);
     background-size: 100%;
     text-align: center;
+    text-shadow: black 10px 10px 50px;
+}
+
+header p {
+    font-family:'Aclonica';
+        font-size: 50px;
+        color: goldenrod;
+        text-align: right;
+        text-shadow: black 1px 1px 10px;
+}
+
+body{
+    margin: 0;
 }
