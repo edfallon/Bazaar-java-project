@@ -5,24 +5,30 @@
     <label for="category">Category:</label>
     <select name="category" id="category">
         #foreach($category in $categories)
+        #if($advert.getCategory().getValue() == $category.getValue())
+        <option value="$category" selected>$category.getValue()</option>
+        #else
         <option value="$category">$category.getValue()</option>
+        #end
         #end
     </select>
 
     <label for="title">Title</label>
     <input type="text" name="title" required="true" class="inputbox" id="title" value="$advert.getTitle()">
 
-    <label for="description">Description:</label>
-    <input type="text" name="description" required="true" class="inputbox" id="description" value="$advert.getDescription()">
-
-    <label for="photo">Add Photo URL:</label>
-    <input type="text" id="photo" name="photo" required="true" class="inputbox" value="$advert.getPhotourl()">
+    <label for="photourl">Add Photo URL:</label>
+    <input type="text" id="photourl" name="photourl" required="true" class="inputbox" value="$advert.getPhotourl()">
 
     <label for="price">Price:</label>
-    <input type="number" name="price" required="true" class="inputbox" id="price" value="$advert.formattedPrice()">
+    <input type="number" name="price" required="true" class="inputbox" id="price" value="$advert.getPrice()">
 
     <label for="location">Location:</label>
     <input type="text" name="location" required="true" class="inputbox" id="location" value="$advert.getLocation()">
+
+    <br>
+    <br>
+    <label for="description">Description:</label>
+    <textarea  cols="40" rows="5" name="description" required="true" class="inputbox" id="description">$advert.getDescription()</textarea>
 
     <input type="submit" value="Save" class="button">
 </form>
