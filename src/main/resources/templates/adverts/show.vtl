@@ -1,17 +1,22 @@
-<div>
+<head>
+    <link rel="stylesheet" href="/user.css">
+</head>
+
+<div class="advert">
     <p>$advert.getCategory()</p>
     <p>$advert.getTitle()</p>
+
+    <p><img src="$advert.getPhotourl()" alt="Photo of item for sale" height="400px" width="500px"></p>
     <p>$advert.getDescription()</p>
-    <p><img src="$advert.getPhotourl()" alt="Photo of item for sale"></p>
     <p>$advert.formattedPrice()</p>
     <p>$advert.getLocation()</p>
 
 
 
-    <p> Posted by: $advert.getUser().getName() <a href="mailto:$advert.getUser().getEmail()?subject=$advert.getTitle()">Contact</a>  <a href="/user/$advert.getUser().getId()">See other adverts</a></p>
+    <p> Posted by: $advert.getUser().getName() <a href="mailto:$advert.getUser().getEmail()?subject=$advert.getTitle()" class="button">Contact</a>  <a href="/user/$advert.getUser().getId()" class="button">See other adverts</a></p>
 
 </div>
-<p>Comments</p>
+
 <div class="commentbox">
     <form action="/advert/$advert.getId()/comment" method="post">
 

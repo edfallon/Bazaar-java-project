@@ -1,5 +1,7 @@
-<h2 class="pageHeader" xmlns:th="http://www.w3.org/1999/xhtml">New Advert</h2>
 
+
+<h2 class="pageHeader" xmlns:th="http://www.w3.org/1999/xhtml">New Advert</h2>
+<div class="newad">
 <form action="/advert" method="post">
 
     <label for="category">Category:</label>
@@ -12,8 +14,7 @@
     <label for="title">Title</label>
     <input type="text" name="title" required="true" class="inputbox" id="title">
 
-    <label for="description">Description:</label>
-    <input type="text" name="description" required="true" class="inputbox" id="description">
+
 
     <label for="photourl">Add Photo URL:</label>
     <input type="text" id="photourl" name="photourl" required="true" class="inputbox">
@@ -23,7 +24,11 @@
 
     <label for="location">Location:</label>
     <input type="text" name="location" required="true" class="inputbox" id="location">
+    <br>
+    <br>
+    <label for="description">Description:</label>
+    <textarea  cols="40" rows="5" name="description" required="true" class="inputbox" id="description"></textarea>
 
     <input type="submit" value="Save" class="button">
 </form>
-<a href="/" class="button center">Cancel</a>
+</div>

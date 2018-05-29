@@ -39,6 +39,8 @@ public class MainController {
 
         get("/search", (req, res) ->{
             Map<String, Object> model = new HashMap<>();
+            User loggedInUser = LoginController.getLoggedInUser(req, res);
+            model.put("loggedInUser", loggedInUser);
             List<Advert> results = DBHelper.search("query");
             model.put("results", results);
             model.put("templates", "templates/search.vtl");
@@ -49,6 +51,8 @@ public class MainController {
 
             Map<String, Object> model = new HashMap<>();
             String theQuery = req.queryParams("query");
+            User loggedInUser = LoginController.getLoggedInUser(req, res);
+            model.put("loggedInUser", loggedInUser);
             List<Advert> adverts = DBHelper.search(theQuery);
             model.put("adverts", adverts);
             model.put("template", "templates/search.vtl" );

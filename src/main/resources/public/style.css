@@ -4,6 +4,8 @@
    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
    font-size: 82%;
    overflow:scroll;
+   padding: 10px;
+   margin: 20px;
 }
 
 header {
@@ -27,6 +29,7 @@ header p {
 
 body{
     margin: 0;
+    font-family: 'Arial';
 }
 
 
@@ -40,6 +43,7 @@ ul {
     background-color: white;
     text-align: center;
     color: goldenrod;
+    font-size: 20px;
 }
 
 nav li {
@@ -58,6 +62,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 20px;
 }
 
 .box{
@@ -76,3 +81,48 @@ li a {
     height: 100px;
 
 }
+
+.grid-row{
+    display: flex;
+
+
+    flex-direction: row;
+}
+
+.cell{
+
+    padding: 10px;
+    text-align: center;
+    margin: 3px;
+
+
+}
+
+.advert{
+    padding: 10px;
+    margin: 5px;
+}
+
+.commentbox{
+    padding: 10px;
+    margin: 20px;
+}
+
+h2{
+    color: goldenrod;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+textarea{
+resize: none;
+}
+
+.newad{
+    padding: 30px;
+    color: goldenrod;
+}
+
