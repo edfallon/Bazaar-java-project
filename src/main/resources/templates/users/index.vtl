@@ -11,7 +11,7 @@
         <tr>
             <td>$advert.getCategory()</td>
             <td>$advert.getTitle()</td>
-            <td>$advert.getPrice()</td>
+            <td>$advert.formattedPrice()</td>
             <td>$advert.getLocation()</td>
             <td><a href="/advert/$advert.getId()" class="button center">View advert</a></td>
             #if($loggedInUser.getId() == $user.getId())
