@@ -5,13 +5,7 @@
 <p class="pageHeader">Adverts</p>
 <div class="container">
     <table>
-        <tr>
-            <th>Category</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Location</th>
-            <th>Delete</th>
-        </tr>
+
 
             #foreach($advert in $adverts)
         <tr>
@@ -19,12 +13,14 @@
             <td>$advert.getTitle()</td>
             <td>$advert.getPrice()</td>
             <td>$advert.getLocation()</td>
+            <td><a href="/advert/$advert.getId()" class="button center">View advert</a></td>
             #if($loggedInUser.getId() == $user.getId())
             <td><form action="/advert/$advert.getId()/delete" method="post">
                 <input type="submit" value="Delete" class="button center">
             </form></td>
             <td><a href="/advert/$advert.getId()/edit">Edit</a>
             </td>
+
             #end
         <tr>
         #end

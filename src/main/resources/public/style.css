@@ -5,3 +5,11 @@
    font-size: 82%;
    overflow:scroll;
 }
+
+header {
+    font-family:'Aclonica';
+    font-size: 100px;
+    color: goldenrod;
+    background-image: http://hdwpro.com/wp-content/uploads/2016/07/Animated-Colourful-Wallpaper.jpeg;
+    text-align: center;
+}

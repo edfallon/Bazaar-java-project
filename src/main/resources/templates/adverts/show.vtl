@@ -2,13 +2,13 @@
     <p>$advert.getCategory()</p>
     <p>$advert.getTitle()</p>
     <p>$advert.getDescription()</p>
-    <p>$advert.getPhotourl()</p>
+    <p><img src="$advert.getPhotourl()" alt="Photo of item for sale"></p>
     <p>£$advert.getPrice()</p>
     <p>$advert.getLocation()</p>
 
 
 
-    <p> Posted by: $advert.getUser().getName() <a href="mailto:$advert.getUser().getEmail()?subject=$advert.getTitle()">Contact</a></p>
+    <p> Posted by: $advert.getUser().getName() <a href="mailto:$advert.getUser().getEmail()?subject=$advert.getTitle()">Contact</a>  <a href="/user/$advert.getUser().getId()">See other adverts</a></p>
 
 </div>
 <p>Comments</p>
