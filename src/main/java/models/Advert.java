@@ -121,5 +121,9 @@ public class Advert {
     public void addCommentToAdvert(Comment comment){
         this.comments.add(comment);
     }
+
+    public String formattedPrice(){
+        return String.format("£%.2f", this.price);
+    }
 }
 
