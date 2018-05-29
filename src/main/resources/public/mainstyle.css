@@ -1,0 +1,15 @@
+.grid-row {
+  display: flex;
+  border: 1px solid palegoldenrod;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.cell {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid palegoldenrod;
+  text-align: left;
+  color: palegoldenrod;
+
+}
