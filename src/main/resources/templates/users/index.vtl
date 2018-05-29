@@ -1,4 +1,8 @@
-<p class="pageHeader">All Adverts</p>
+<head>
+    <link rel="stylesheet" href="/user.css">
+</head>
+
+
 
 <p>User: $user.getName()</p>
 
@@ -18,7 +22,7 @@
             <td><form action="/advert/$advert.getId()/delete" method="post">
                 <input type="submit" value="Delete" class="button center">
             </form></td>
-            <td><a href="/advert/$advert.getId()/edit">Edit</a>
+            <td><a href="/advert/$advert.getId()/edit" class="button">Edit</a>
             </td>
 
             #end

@@ -1,29 +1,28 @@
-<p class="pageHeader">Adverts by Category</p>
+<head>
+    <link rel="stylesheet" href="/user.css">
+</head>
+
+
+<div class="grid">
+    #foreach($advert in $adverts)
+    <div class="grid-row">
 
 
 
-<div class="container">
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Location</th>
-            <th></th>
-        </tr>
-
-        #foreach($advert in $adverts)
 
 
-        <tr>
-            <td>$advert.getTitle()</td>
-            <td>$advert.formattedPrice()</td>
-            <td>$advert.getLocation()</td>
-            <td><a href="/advert/$advert.getId()" class="button center">See more</a></td>
-        <tr>
-        #end
+
+            <div class="cell">$advert.getTitle()</div>
+            <div class="cell">$advert.formattedPrice()</div>
+            <div class="cell">$advert.getLocation()</div>
+            <div class="cell"><a href="/advert/$advert.getId()" class="button center">View advert</a></div>
 
 
-    </table>
+
+
+    </div>
+
+    #end
 
 
 </div>
