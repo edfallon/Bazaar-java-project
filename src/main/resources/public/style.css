@@ -8,8 +8,9 @@
 
 header {
     font-family:'Aclonica';
-    font-size: 100px;
+    font-size: 200px;
     color: goldenrod;
-    background-image: http://hdwpro.com/wp-content/uploads/2016/07/Animated-Colourful-Wallpaper.jpeg;
+    background: url(https://images6.alphacoders.com/405/405735.jpg);
+    background-size: 100%;
     text-align: center;
 }
