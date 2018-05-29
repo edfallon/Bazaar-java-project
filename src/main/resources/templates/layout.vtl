@@ -14,21 +14,30 @@
 <header>BaZaAr
     <p>...just what you're looking for...</p>
 </header>
-<p>Logged in as: $loggedInUser.getName()  <a href="/logout">Logout</a></p>
+
 
 <nav>
     <ul>
-        <li><a href="/">home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/user/$loggedInUser.getId()">My Account</a></li>
-        <li><a href="/login">login</a></li>
+        <li><a href="/login">Login</a></li>
         <li><a href="/advert/new">Create New Advert</a></li>
-        <li><form action="/search" method="post">
-            <input type="search" name ="query" placeholder="search for an item">
-            <input type="submit" value="search">
-        </form></li>
+
+        <li>Logged in as: $loggedInUser.getName()</li>
+        <li><a href="/logout">Logout</a></li>
+
+
+
 
     </ul>
 </nav>
+
+<div class="box">
+    <form action="/search" method="post">
+        <input type="search" name ="query" placeholder="search for an item">
+        <input type="submit" value="search">
+    </form>
+</div>
     <div class="container">
         #parse( $template )
     </div>
