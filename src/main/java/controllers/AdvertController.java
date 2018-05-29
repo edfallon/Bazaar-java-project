@@ -83,7 +83,7 @@ public class AdvertController {
             String title = req.queryParams("title");
             String description = req.queryParams("description");
             String photo = req.queryParams("photourl");
-            int price = Integer.parseInt(req.queryParams("price"));
+            double price = Double.parseDouble(req.queryParams("price"));
             String location = req.queryParams("location");
             Advert advert = new Advert(title, description, catEnum, price, location, user, photo);
             DBHelper.save(advert);
@@ -100,7 +100,7 @@ public class AdvertController {
             String title = req.queryParams("title");
             String description = req.queryParams("description");
             String photo = req.queryParams("photourl");
-            int price = Integer.parseInt(req.queryParams("price"));
+            double price = Double.parseDouble(req.queryParams("price"));
             String location = req.queryParams("location");
 
             advert.setCategory(catEnum);
