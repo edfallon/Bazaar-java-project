@@ -53,7 +53,7 @@ public class Advert {
         this.title = title;
     }
 
-    @Column(name="description")
+    @Column(name="description", length=10000)
     public String getDescription() {
         return description;
     }
