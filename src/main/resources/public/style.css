@@ -1,0 +1,128 @@
+.scrollabletextbox {
+   height:160px;
+   width:600px;
+   font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+   font-size: 82%;
+   overflow:scroll;
+   padding: 10px;
+   margin: 20px;
+}
+
+header {
+    font-family:'Aclonica';
+    font-size: 200px;
+    color: goldenrod;
+    background: url(https://images6.alphacoders.com/405/405735.jpg);
+    background-size: 100%;
+    text-align: center;
+    text-shadow: black 10px 10px 50px;
+}
+
+header p {
+    font-family:'Aclonica';
+        font-size: 50px;
+        color: goldenrod;
+        text-align: right;
+        text-shadow: black 1px 1px 10px;
+        margin: 0;
+}
+
+body{
+    margin: 0;
+    font-family: 'Arial';
+}
+
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    color: goldenrod;
+    font-size: 20px;
+}
+
+nav li {
+    display: inline-block;
+    justify-content: space-between;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+li a {
+    display: block;
+    color: goldenrod;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.box{
+    width: 100%;
+    text-align:center;
+
+}
+
+#search {
+    margin: 0 auto;
+    display: inline-block;
+
+}
+
+.box input {
+    height: 100px;
+
+}
+
+.grid-row{
+    display: flex;
+
+
+    flex-direction: row;
+}
+
+.cell{
+
+    padding: 10px;
+    text-align: center;
+    margin: 3px;
+
+
+}
+
+.advert{
+    padding: 10px;
+    margin: 5px;
+}
+
+.commentbox{
+    padding: 10px;
+    margin: 20px;
+}
+
+h2{
+    color: goldenrod;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+textarea{
+resize: none;
+}
+
+.newad{
+    padding: 30px;
+    color: goldenrod;
+}
+

@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" href="/user.css">
+</head>
+
+
+<div class="grid">
+    #foreach($advert in $adverts)
+    <div class="grid-row">
+
+
+
+
+
+
+            <div class="cell">$advert.getTitle()</div>
+            <div class="cell">$advert.formattedPrice()</div>
+            <div class="cell">$advert.getLocation()</div>
+            <div class="cell"><a href="/advert/$advert.getId()" class="button center">View advert</a></div>
+
+
+
+
+    </div>
+
+    #end
+
+
+</div>

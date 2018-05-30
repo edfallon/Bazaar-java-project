@@ -1,9 +1,9 @@
 package db;
 
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import models.Advert;
+import models.User;
+import org.hibernate.*;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -28,16 +28,31 @@ public class DBHelper {
         }
     }
 
-    public static <T> void deleteAll(Class classType){
+//    public static <T> void deleteAll(Class classType){
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        try {
+//            transaction = session.beginTransaction();
+//            Criteria cr = session.createCriteria(classType);
+//            List<T> results = cr.list();
+//            for (T result : results){
+//                session.delete(result);
+//            }
+//        } catch (HibernateException e){
+//            transaction.rollback();
+//            e.printStackTrace();
+//        } finally {
+//            session.close();
+//        }
+//    }
+
+    public static void deleteAll(Class classType){
         session = HibernateUtil.getSessionFactory().openSession();
         try {
+            String hql = "DELETE FROM " + classType.getName();
             transaction = session.beginTransaction();
-            Criteria cr = session.createCriteria(classType);
-            List<T> results = cr.list();
-            for (T result : results){
-                session.delete(result);
-            }
-        } catch (HibernateException e){
+            session.createQuery(hql).executeUpdate();
+            transaction.commit();
+        } catch (HibernateException e) {
             transaction.rollback();
             e.printStackTrace();
         } finally {
@@ -108,6 +123,24 @@ public class DBHelper {
         System.out.println(result);
         return result;
     }
+
+    public static List<Advert> search(String string){
+        session = HibernateUtil.getSessionFactory().openSession();
+            List<Advert> results = null;
+        try {
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.ilike("title", "%" + string + "%", MatchMode.ANYWHERE));
+            results = cr.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        } return results;
+
+    }
+
+
+
 
 
 }

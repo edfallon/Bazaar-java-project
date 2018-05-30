@@ -1,0 +1,45 @@
+header {
+    font-family:'Aclonica';
+    font-size: 200px;
+    color: goldenrod;
+    background: url(https://images6.alphacoders.com/405/405735.jpg);
+    background-size: 100%;
+    text-align: center;
+    text-shadow: black 10px 10px 50px;
+}
+
+header p {
+    font-family:'Aclonica';
+        font-size: 50px;
+        color: goldenrod;
+        text-align: right;
+        text-shadow: black 1px 1px 10px;
+}
+
+body{
+    margin: 0;
+}
+
+.login{
+width 100%;
+text-align: center;}
+
+.button {
+font-family:'Aclonica';
+  font: bold 1.5em;
+  text-decoration: none;
+  background-color: #FFFFFF;
+  color: goldenrod;
+  padding: 2px 6px 2px 6px;
+  margin: 0 auto;
+}
+
+h2{
+    color: goldenrod;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
