@@ -6,6 +6,8 @@ A project using Java, Hibernate and Spark to create a Gumtree style web applicat
 
 This project was created in IntelliJ. Once the code is open press play to run the main controller and then open localhost:4567 on your web browser (we used Google Chrome) and register as a new user on the login page.
 
+This project has also been deployed to Heroku and can be used at http://bazaar-java-project.herokuapp.com
+
 ### Prerequisites
 
 IntelliJ or similar IDE should be installed as should a web browser such as Google Chrome.
